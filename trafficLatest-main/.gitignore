@@ -1,0 +1,21 @@
+# Maven specific
+target/
+!.mvn/wrapper/maven-wrapper.jar  # Keep Maven wrapper
+
+# IDE files
+*.iml
+*.ipr
+*.iws
+.idea/
+.vscode/
+
+# Compiled bytecode
+*.class
+
+# Logs
+logs/
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
