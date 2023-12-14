@@ -31,12 +31,13 @@ public class WeatherForDrivingService {
 
     return weather.isFoggy();
   }
-  public void getWeather(){
-    WeatherSchema weatherSchema = weatherRepository.findById("Tunis").get();
+  public WeatherSchema getWeather(String city){
+    WeatherSchema weatherSchema = weatherRepository.findById(city).get();
     List<String> weatherDescriptions = weatherSchema.getWeatherDescriptions();
     for (String description : weatherDescriptions) {
         System.out.println(description);
     }
+    return weatherSchema;
   }
   
 }

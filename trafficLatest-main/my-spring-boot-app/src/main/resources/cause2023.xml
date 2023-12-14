@@ -2,7 +2,7 @@
 <items>
 
 <item>
-<labelle>عبور السكة</labelle><accidents>10</accidents><tues>6</tues><blesses>8</blesses>
+<labelle>عبور السكة</labelle><accidents>11</accidents><tues>6</tues><blesses>10</blesses>
 </item>
 <item>
 <labelle>اهمال حدث</labelle><accidents>12</accidents><tues>4</tues><blesses>8</blesses>
@@ -11,54 +11,54 @@
 <labelle>اختراق الضوء الاحمر</labelle><accidents>28</accidents><tues>5</tues><blesses>44</blesses>
 </item>
 <item>
-<labelle>محاولة صعود او نزول</labelle><accidents>28</accidents><tues>2</tues><blesses>26</blesses>
+<labelle>محاولة صعود او نزول</labelle><accidents>29</accidents><tues>2</tues><blesses>27</blesses>
 </item>
 <item>
 <labelle>انفلاق عجلة</labelle><accidents>32</accidents><tues>11</tues><blesses>63</blesses>
 </item>
 <item>
-<labelle>السياقة بدون رخصة</labelle><accidents>36</accidents><tues>10</tues><blesses>48</blesses>
+<labelle>السياقة بدون رخصة</labelle><accidents>37</accidents><tues>10</tues><blesses>49</blesses>
 </item>
 <item>
 <labelle>السير ليلا بدون انارة</labelle><accidents>40</accidents><tues>15</tues><blesses>44</blesses>
 </item>
 <item>
-<labelle>فتح باب</labelle><accidents>43</accidents><tues>3</tues><blesses>50</blesses>
+<labelle>فتح باب</labelle><accidents>44</accidents><tues>3</tues><blesses>51</blesses>
 </item>
 <item>
 <labelle>السير في اتجاه محجر</labelle><accidents>53</accidents><tues>9</tues><blesses>92</blesses>
 </item>
 <item>
-<labelle>السياقة في حالة سكر</labelle><accidents>78</accidents><tues>16</tues><blesses>134</blesses>
+<labelle>السياقة في حالة سكر</labelle><accidents>79</accidents><tues>16</tues><blesses>135</blesses>
 </item>
 <item>
-<labelle>المجاوزة الممنوعة</labelle><accidents>93</accidents><tues>35</tues><blesses>171</blesses>
+<labelle>السير الى الوراء</labelle><accidents>95</accidents><tues>7</tues><blesses>119</blesses>
 </item>
 <item>
-<labelle>السير الى الوراء</labelle><accidents>94</accidents><tues>7</tues><blesses>118</blesses>
+<labelle>المجاوزة الممنوعة</labelle><accidents>98</accidents><tues>38</tues><blesses>177</blesses>
 </item>
 <item>
-<labelle>عدم احترام علامة قف</labelle><accidents>137</accidents><tues>12</tues><blesses>198</blesses>
+<labelle>عدم احترام علامة قف</labelle><accidents>139</accidents><tues>12</tues><blesses>201</blesses>
 </item>
 <item>
 <labelle>تغيير اتجاه</labelle><accidents>216</accidents><tues>31</tues><blesses>345</blesses>
 </item>
 <item>
-<labelle>عدم ملازمة اليمين</labelle><accidents>293</accidents><tues>142</tues><blesses>561</blesses>
+<labelle>عدم ملازمة اليمين</labelle><accidents>299</accidents><tues>142</tues><blesses>572</blesses>
 </item>
 <item>
-<labelle>المداهمة</labelle><accidents>309</accidents><tues>59</tues><blesses>546</blesses>
+<labelle>المداهمة</labelle><accidents>314</accidents><tues>59</tues><blesses>555</blesses>
 </item>
 <item>
-<labelle>شق الطريق</labelle><accidents>370</accidents><tues>81</tues><blesses>320</blesses>
+<labelle>شق الطريق</labelle><accidents>377</accidents><tues>82</tues><blesses>326</blesses>
 </item>
 <item>
-<labelle>عدم احترام الاولوية</labelle><accidents>430</accidents><tues>42</tues><blesses>592</blesses>
+<labelle>عدم احترام الاولوية</labelle><accidents>439</accidents><tues>42</tues><blesses>601</blesses>
 </item>
 <item>
-<labelle>السرعة</labelle><accidents>851</accidents><tues>365</tues><blesses>1389</blesses>
+<labelle>السرعة</labelle><accidents>864</accidents><tues>369</tues><blesses>1428</blesses>
 </item>
 <item>
-<labelle>السهو وعدم الانتباه</labelle><accidents>2131</accidents><tues>274</tues><blesses>2517</blesses>
+<labelle>السهو وعدم الانتباه</labelle><accidents>2165</accidents><tues>280</tues><blesses>2546</blesses>
 </item>
 </items>

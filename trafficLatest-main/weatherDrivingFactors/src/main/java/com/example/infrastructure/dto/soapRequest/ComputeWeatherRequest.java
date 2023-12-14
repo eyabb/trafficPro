@@ -6,7 +6,7 @@ package com.example.infrastructure.dto.soapRequest;
 import jakarta.xml.bind.annotation.*;
 import lombok.Data;
 
-@XmlRootElement(name = "CityRequest")
+@XmlRootElement(name = "ComputeWeatherRequest")
 @XmlAccessorType(XmlAccessType.FIELD)
 @Data
 public class ComputeWeatherRequest {

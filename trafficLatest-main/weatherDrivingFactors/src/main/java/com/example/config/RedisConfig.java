@@ -1,5 +1,6 @@
 package com.example.config;
 
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
@@ -13,26 +14,6 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @EnableRedisRepositories(basePackages = "com.example.repository")
 public class RedisConfig {
 
-  // @Bean
-  // public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory
-  // connectionFactory) {
-  // final RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
-  // redisTemplate.setConnectionFactory(connectionFactory);
-  // redisTemplate.setValueSerializer(new
-  // GenericToStringSerializer<>(Object.class));
-  // return redisTemplate;
-  // }
-  // @Bean
-  // JedisConnectionFactory jedisConnectionFactory() {
-  // return new JedisConnectionFactory();
-  // }
-  //
-  // @Bean
-  // public RedisTemplate<String, Object> redisTemplate() {
-  // RedisTemplate<String, Object> template = new RedisTemplate<>();
-  // template.setConnectionFactory(jedisConnectionFactory());
-  // return template;
-  // }
 
   @Bean
   public JedisConnectionFactory connectionFactory() {

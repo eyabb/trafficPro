@@ -18,6 +18,9 @@ import com.example.domain.command.ComputeWeather;
 import com.example.infrastructure.dto.Rain;
 import com.example.infrastructure.dto.Snow;
 import com.example.infrastructure.dto.WeatherDto;
+import com.example.infrastructure.schema.WeatherSchema;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * WeaterController
@@ -27,31 +30,50 @@ public class WeatherForDrivingController {
   @Autowired
   private WeatherForDrivingService weatherForDrivingService;
   private final RestTemplate restTemplate = new RestTemplate();
-  
+  private Map<String, Map<String, Double>> cityCoordinates = new HashMap<>();
+
   @PostMapping("/weather/{city}")
   public ResponseEntity<String> computeWeather(@PathVariable String city) {
     System.out.println("hey");
-    String url = "https://api.openweathermap.org/data/2.5/weather?lat=34.0479&lon=10.6197&appid=0917ed7b90429faccd44fe6c5915fd63&lang=ar";
+    Map<String, Double> sfaxCoords = new HashMap<>();
+    sfaxCoords.put("latitude", 34.7406);
+    sfaxCoords.put("longitude", 10.7601);
+    cityCoordinates.put("Sfax", sfaxCoords);
+    Map<String, Double> tunisCoords = new HashMap<>();
+    tunisCoords.put("latitude", 34.0479);
+    tunisCoords.put("longitude", 10.6197);
+    cityCoordinates.put("Tunis", tunisCoords);
+    Double selectedCityLatitude = cityCoordinates.get("Tunis").get("latitude");
+    Double selectedCityLongitude = cityCoordinates.get("Tunis").get("longitude");
+    Map<String, Double> selectedCityCoordinates = cityCoordinates.get(city);
+    if (selectedCityCoordinates != null) {
+       selectedCityLatitude = selectedCityCoordinates.get("latitude");
+       selectedCityLongitude = selectedCityCoordinates.get("longitude");
+    }
+    String url = "https://api.openweathermap.org/data/2.5/weather?lat=" + selectedCityLatitude
+        + "&lon=" + selectedCityLongitude +  "&appid=0917ed7b90429faccd44fe6c5915fd63&lang=ar";
     try {
       ResponseEntity<WeatherDto> response = this.restTemplate.getForEntity(url, WeatherDto.class);
       if (response.getStatusCode().is2xxSuccessful()) {
         WeatherDto weatherDto = response.getBody();
-    ArrayList<String> descriptions = new ArrayList<>(); 
-    for(int i=0; i < weatherDto.getWeather().length; i++){
-      descriptions.add(weatherDto.getWeather()[i].getDescription());
-              
-    }
-    Snow snow = weatherDto.getSnow();
-    float volumeOfSnowForTheLastHourInMm = 0.0f;
-    if(snow != null){
-        volumeOfSnowForTheLastHourInMm = snow.getVolumeOfSnowForTheLastHourInMm();
-    }
-    Rain rain = weatherDto.getRain();
-    float volumeOfRainForTheLastHourInMm = 0.0f;
-    if(rain != null){
-        volumeOfSnowForTheLastHourInMm = rain.getVolumeOfRainForTheLastHourInMm();
-    }
-        ComputeWeather computeWeatherCommand = new ComputeWeather(city,volumeOfRainForTheLastHourInMm,volumeOfSnowForTheLastHourInMm ,weatherDto.getVisibility(),descriptions,weatherDto.getTemp(),weatherDto.getHumidity());
+        ArrayList<String> descriptions = new ArrayList<>();
+        for (int i = 0; i < weatherDto.getWeather().length; i++) {
+          descriptions.add(weatherDto.getWeather()[i].getDescription());
+
+        }
+        Snow snow = weatherDto.getSnow();
+        float volumeOfSnowForTheLastHourInMm = 0.0f;
+        if (snow != null) {
+          volumeOfSnowForTheLastHourInMm = snow.getVolumeOfSnowForTheLastHourInMm();
+        }
+        Rain rain = weatherDto.getRain();
+        float volumeOfRainForTheLastHourInMm = 0.0f;
+        if (rain != null) {
+          volumeOfSnowForTheLastHourInMm = rain.getVolumeOfRainForTheLastHourInMm();
+        }
+        ComputeWeather computeWeatherCommand = new ComputeWeather(city, volumeOfRainForTheLastHourInMm,
+            volumeOfSnowForTheLastHourInMm, weatherDto.getVisibility(), descriptions, weatherDto.getTemp(),
+            weatherDto.getHumidity());
         boolean isFoggy = weatherForDrivingService.isFoggy(computeWeatherCommand);
         return ResponseEntity.ok("Weather data computed successfully.");
 
@@ -63,10 +85,9 @@ public class WeatherForDrivingController {
       return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Exception occurred");
     }
   }
-  @GetMapping("/hello")
-    public String sayHello() {
-        weatherForDrivingService.getWeather();
-        return "Hello!";
-    }
 
+  @GetMapping("/weather/{city}")
+  public WeatherSchema getWeather(@PathVariable String city) {
+    return weatherForDrivingService.getWeather(city);
+  }
 }

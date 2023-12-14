@@ -14,6 +14,7 @@ import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Unmarshaller;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 @Service
 public class XmlService {
@@ -49,5 +50,8 @@ public class XmlService {
     } catch (JAXBException | IOException e) {
       e.printStackTrace();
     }
+  }
+  public List<ItemSchema> getAccidentsInfo(){
+      return itemRepository.findAll();
   }
 }
